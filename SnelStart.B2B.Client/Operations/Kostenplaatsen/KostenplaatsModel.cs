@@ -19,7 +19,7 @@
         public string Omschrijving { get; set; }
 
         /// <summary>
-        /// Een vlag dat aangeeft of een kostenplaats niet meer actief is binnen de administratie.
+        /// Een vlag die aangeeft of een kostenplaats niet meer actief is binnen de administratie.
         /// Indien <see langword="true" />, dan kan er niet geboekt worden op de kostenplaats.
         /// </summary>
         public bool Nonactief { get; set; }
