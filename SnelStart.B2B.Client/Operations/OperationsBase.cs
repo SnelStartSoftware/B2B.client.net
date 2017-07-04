@@ -12,7 +12,7 @@ namespace SnelStart.B2B.Client.Operations
         private readonly ClientState _clientState;
         private readonly Uri _resourceUri;
 
-        public OperationsBase(ClientState clientState, string resourceName)
+        protected OperationsBase(ClientState clientState, string resourceName)
         {
             _clientState = clientState;
             _resourceUri = _clientState.Config.ApiBaseUriVersioned.AddSegment(resourceName);
