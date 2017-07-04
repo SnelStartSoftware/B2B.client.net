@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.Globalization;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace SnelStart.B2B.Client.Operations
@@ -27,14 +29,22 @@ namespace SnelStart.B2B.Client.Operations
 
             var message = await _httpClient.PostAsync(_config.AuthUri, new FormUrlEncodedContent(requestBody));
             var json = await message.Content.ReadAsStringAsync();
-            dynamic response = JObject.Parse(json);
+
+            var authResponse = JsonConvert.DeserializeObject<AuthResposne>(json);
 
             return new LoginResponse
             {
-                AccessToken = response.access_token,
-                TokenType = response.token_type,
-                ExpiresIn = response.expires_in,
+                AccessToken = authResponse.Access_Token,
+                TokenType = authResponse.Token_Type,
+                ExpiresIn = authResponse.Expires_In,
             };
+        }
+
+        private class AuthResposne
+        {
+            public string Access_Token { get; set; }
+            public string Token_Type { get; set; }
+            public int Expires_In { get; set; }
         }
     }
 }

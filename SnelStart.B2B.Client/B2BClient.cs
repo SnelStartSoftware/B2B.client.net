@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using SnelStart.B2B.Client.Operations;
+using SnelStart.B2B.Client.Operations.Kostenplaatsen;
 
 namespace SnelStart.B2B.Client
 {
@@ -9,6 +10,7 @@ namespace SnelStart.B2B.Client
         private readonly ClientState _clientState;
 
         public IAuthenticationOperations Authentication { get; }
+        public IKostenplaatsenOperations Kostenplaatsen { get; }
 
         public B2BClient(Config config)
         {
@@ -19,14 +21,18 @@ namespace SnelStart.B2B.Client
 
             _clientState = new ClientState(config);
             Authentication = new AuthenticationOperations(_clientState);
+            Kostenplaatsen = new KostenplaatsenOperations(_clientState);
         }
 
-        public async Task AuthorizeAsync()
+        internal async Task AuthorizeAsync()
         {
             var pair = _clientState.Config.GetApiUsernamePassword();
 
             var clientStateAccessToken = await Authentication.LoginAsync(pair.Username, pair.Password);
             _clientState.AccessToken = clientStateAccessToken.AccessToken;
+
+            _clientState.HttpClient.DefaultRequestHeaders.Add("Authorization", $"Bearer {_clientState.AccessToken}");
+            _clientState.HttpClient.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", _clientState.Config.SubscriptionKey);
         }
 
         public void Dispose()
