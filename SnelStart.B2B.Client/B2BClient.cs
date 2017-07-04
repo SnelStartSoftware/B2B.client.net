@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
 using SnelStart.B2B.Client.Operations;
-using SnelStart.B2B.Client.Operations.Kostenplaatsen;
 
 namespace SnelStart.B2B.Client
 {

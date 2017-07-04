@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace SnelStart.B2B.Client.Operations.Kostenplaatsen
+namespace SnelStart.B2B.Client.Operations
 {
     internal class KostenplaatsenOperations : CrudOperationsBase<KostenplaatsModel>, IKostenplaatsenOperations
     {

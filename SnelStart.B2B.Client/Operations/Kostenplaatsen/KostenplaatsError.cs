@@ -1,4 +1,4 @@
-﻿namespace SnelStart.B2B.Client.Operations.Kostenplaatsen
+﻿namespace SnelStart.B2B.Client.Operations
 {
     /// <summary>
     /// Een container voor alle <see cref="Error"/>s die kunnen optreden met relaties.

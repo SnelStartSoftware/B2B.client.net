@@ -3,7 +3,6 @@ using System.Net;
 using System.Threading.Tasks;
 using NUnit.Framework;
 using SnelStart.B2B.Client.Operations;
-using SnelStart.B2B.Client.Operations.Kostenplaatsen;
 
 namespace SnelStart.B2B.Client.IntegrationTest
 {

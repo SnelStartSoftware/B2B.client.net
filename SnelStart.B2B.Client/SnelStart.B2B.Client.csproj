@@ -44,11 +44,11 @@
     <Compile Include="ClientState.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="IB2BClient.cs" />
-    <Compile Include="Operations\AuthenticationOperations.cs" />
+    <Compile Include="Operations\Authentication\AuthenticationOperations.cs" />
     <Compile Include="Operations\CrudOperationsBase.cs" />
     <Compile Include="Operations\Error.cs" />
     <Compile Include="Operations\Extensions.cs" />
-    <Compile Include="Operations\IAuthenticationOperations.cs" />
+    <Compile Include="Operations\Authentication\IAuthenticationOperations.cs" />
     <Compile Include="Operations\ICrudOperations.cs" />
     <Compile Include="Operations\IdentifierModel.cs" />
     <Compile Include="Operations\IIdentifierModel.cs" />
@@ -57,7 +57,7 @@
     <Compile Include="Operations\Kostenplaatsen\KostenplaatsError.cs" />
     <Compile Include="Operations\Kostenplaatsen\KostenplaatsIdentifierModel.cs" />
     <Compile Include="Operations\Kostenplaatsen\KostenplaatsModel.cs" />
-    <Compile Include="Operations\LoginResponse.cs" />
+    <Compile Include="Operations\Authentication\LoginResponse.cs" />
     <Compile Include="Operations\OperationsBase.cs" />
     <Compile Include="Operations\Response.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
