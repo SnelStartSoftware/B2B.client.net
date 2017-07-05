@@ -47,6 +47,7 @@
     <Compile Include="CrudTest.cs" />
     <Compile Include="DependencyRoot.cs" />
     <Compile Include="KostenplaatsenOperationsTest.cs" />
+    <Compile Include="MemoriaalboekingOperationsTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
