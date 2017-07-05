@@ -86,6 +86,8 @@
     <Compile Include="Operations\Authentication\LoginResponse.cs" />
     <Compile Include="Operations\Landen\LandIdentifierModel.cs" />
     <Compile Include="Operations\Landen\LandModel.cs" />
+    <Compile Include="Operations\Memoriaalboekingen\IMemoriaalboekingenOperations.cs" />
+    <Compile Include="Operations\Memoriaalboekingen\MemoriaalboekingenOperations.cs" />
     <Compile Include="Operations\Memoriaalboekingen\MemoriaalboekingModel.cs" />
     <Compile Include="Operations\OperationsBase.cs" />
     <Compile Include="Operations\Relaties\RelatieIdentifierModel.cs" />
