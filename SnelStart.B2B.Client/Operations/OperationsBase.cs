@@ -50,19 +50,21 @@ namespace SnelStart.B2B.Client.Operations
 
         private async Task<Response<TData>> CreateResponse<TData>(HttpResponseMessage response, HttpStatusCode expectedStatusCode)
         {
+            var body = await response.Content.ReadAsStringAsync();
             if (response.StatusCode == expectedStatusCode)
             {
-                var body = await response.Content.ReadAsStringAsync();
                 var result = JsonConvert.DeserializeObject<TData>(body);
                 return new Response<TData>
                 {
                     Result = result,
-                    HttpStatusCode = response.StatusCode
+                    HttpStatusCode = response.StatusCode,
+                    ResponseBody = body
                 };
             }
             return new Response<TData>
             {
-                HttpStatusCode = response.StatusCode
+                HttpStatusCode = response.StatusCode,
+                ResponseBody = body
             };
         }
 
@@ -82,9 +84,11 @@ namespace SnelStart.B2B.Client.Operations
             return await Execute(async httpClient =>
             {
                 var response = await httpClient.DeleteAsync(itemUri);
+                var body = await response.Content.ReadAsStringAsync();
                 return new Response
                 {
-                    HttpStatusCode = response.StatusCode
+                    HttpStatusCode = response.StatusCode,
+                    ResponseBody = body
                 };
             });
         }

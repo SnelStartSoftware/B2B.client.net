@@ -64,7 +64,7 @@ namespace SnelStart.B2B.Client.IntegrationTest
             var createResponse = await CrudSubject.CreateAsync(dto);
             if (createResponse.HttpStatusCode != HttpStatusCode.Created)
             {
-                Assert.Inconclusive("dto not created");
+                Assert.Inconclusive($"dto not created Status {createResponse.HttpStatusCode}, Response:\r\n{createResponse.ResponseBody}");
             }
             return createResponse;
         }
