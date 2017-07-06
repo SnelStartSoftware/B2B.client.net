@@ -1,9 +1,11 @@
-﻿namespace SnelStart.B2B.Client.Operations
+﻿using System.Runtime.InteropServices.WindowsRuntime;
+
+namespace SnelStart.B2B.Client.Operations
 {
     /// <summary>
     /// De gegevenscontainer voor een grootboek.
     /// </summary>
-    public class GrootboekModel: GrootboekIdentifierModel
+    public class GrootboekModel : GrootboekIdentifierModel
     {
         /// <summary>
         /// Geeft de naam van deze gegevenscontainer terug.
@@ -21,7 +23,7 @@
         /// De omschrijving van het grootboek.
         /// </summary>
         public string Omschrijving { get; set; }
-        
+
         /// <summary>
         /// Kostenplaats wel of niet verplicht bij het boeken.
         /// </summary>

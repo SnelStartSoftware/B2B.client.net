@@ -7,5 +7,6 @@ namespace SnelStart.B2B.Client
     {
         IAuthenticationOperations Authentication { get; }
         IKostenplaatsenOperations Kostenplaatsen{ get; }
+        IGrootboekenOperations Grootboeken { get; }
     }
 }

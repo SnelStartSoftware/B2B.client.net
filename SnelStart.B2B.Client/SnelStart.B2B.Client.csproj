@@ -60,11 +60,14 @@
     <Compile Include="Operations\Extensions.cs" />
     <Compile Include="Operations\Authentication\IAuthenticationOperations.cs" />
     <Compile Include="Operations\Grootboeken\DagboekIdentifierModel.cs" />
+    <Compile Include="Operations\Grootboeken\GrootboekenOperations.cs" />
     <Compile Include="Operations\Grootboeken\GrootboekIdentifierModel.cs" />
     <Compile Include="Operations\Grootboeken\GrootboekModel.cs" />
+    <Compile Include="Operations\Grootboeken\IGrootboekenOperations.cs" />
     <Compile Include="Operations\Grootboeken\RekeningCodeModel.cs" />
     <Compile Include="Operations\ICrudOperations.cs" />
     <Compile Include="Operations\IdentifierModel.cs" />
+    <Compile Include="Operations\IGetAllOperations.cs" />
     <Compile Include="Operations\IIdentifierModel.cs" />
     <Compile Include="Operations\Inkoopboekingen\BtwBoekingModel.cs" />
     <Compile Include="Operations\Inkoopboekingen\BtwBoekingSoortModel.cs" />

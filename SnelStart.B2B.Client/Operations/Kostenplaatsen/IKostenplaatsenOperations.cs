@@ -2,8 +2,7 @@
 
 namespace SnelStart.B2B.Client.Operations
 {
-    public interface IKostenplaatsenOperations : ICrudOperations<KostenplaatsModel>
+    public interface IKostenplaatsenOperations : ICrudOperations<KostenplaatsModel>, IGetAllOperations<KostenplaatsModel>
     {
-        Task<Response<KostenplaatsModel[]>> GetAllAsync();
     }
 }
