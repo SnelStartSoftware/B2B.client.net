@@ -15,7 +15,7 @@ var subscriptionKey = "";
 var config = new Config(subscriptionKey, koppelSleutel);
 var client = new B2BClient(Config);
 
-await Client.AuthorizeAsync();
+await client.AuthorizeAsync();
 
 var kostenplaatsen = await client.Kostenplaatsen.GetAllAsync();
 ````

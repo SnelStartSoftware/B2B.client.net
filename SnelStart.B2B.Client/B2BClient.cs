@@ -10,6 +10,8 @@ namespace SnelStart.B2B.Client
 
         public IAuthenticationOperations Authentication { get; }
         public IKostenplaatsenOperations Kostenplaatsen { get; }
+        public IGrootboekenOperations Grootboeken { get; }
+        public ILandenOperations Landen { get; }
         public IMemoriaalboekingenOperations Memoriaalboekingen { get; }
 
         public B2BClient(Config config)
@@ -22,6 +24,8 @@ namespace SnelStart.B2B.Client
             _clientState = new ClientState(config);
             Authentication = new AuthenticationOperations(_clientState);
             Kostenplaatsen = new KostenplaatsenOperations(_clientState);
+            Grootboeken = new GrootboekenOperations(_clientState);
+            Landen = new LandenOperations(_clientState);
             Memoriaalboekingen = new MemoriaalboekingenOperations(_clientState);
         }
 
