@@ -11,6 +11,8 @@ namespace SnelStart.B2B.Client
         public IAuthenticationOperations Authentication { get; }
         public IKostenplaatsenOperations Kostenplaatsen { get; }
         public IGrootboekenOperations Grootboeken { get; }
+        public ILandenOperations Landen { get; }
+
 
         public B2BClient(Config config)
         {
@@ -23,6 +25,7 @@ namespace SnelStart.B2B.Client
             Authentication = new AuthenticationOperations(_clientState);
             Kostenplaatsen = new KostenplaatsenOperations(_clientState);
             Grootboeken = new GrootboekenOperations(_clientState);
+            Landen = new LandenOperations(_clientState);
         }
 
         internal async Task AuthorizeAsync()

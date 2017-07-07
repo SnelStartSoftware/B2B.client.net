@@ -48,6 +48,7 @@
     <Compile Include="DependencyRoot.cs" />
     <Compile Include="GrootboekenOperationsTest.cs" />
     <Compile Include="KostenplaatsenOperationsTest.cs" />
+    <Compile Include="LandenOperationsTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

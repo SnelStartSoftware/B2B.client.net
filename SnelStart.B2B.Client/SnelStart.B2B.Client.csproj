@@ -87,6 +87,8 @@
     <Compile Include="Operations\Kostenplaatsen\KostenplaatsIdentifierModel.cs" />
     <Compile Include="Operations\Kostenplaatsen\KostenplaatsModel.cs" />
     <Compile Include="Operations\Authentication\LoginResponse.cs" />
+    <Compile Include="Operations\Landen\ILandenOperations.cs" />
+    <Compile Include="Operations\Landen\LandenOperations.cs" />
     <Compile Include="Operations\Landen\LandIdentifierModel.cs" />
     <Compile Include="Operations\Landen\LandModel.cs" />
     <Compile Include="Operations\Memoriaalboekingen\MemoriaalboekingModel.cs" />
