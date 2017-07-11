@@ -7,7 +7,7 @@ namespace SnelStart.B2B.Client.IntegrationTest
 {
     public abstract class CrudTest<T> where T : IIdentifierModel
     {
-        protected abstract T CreateNewModel();
+        protected abstract Task<T> CreateNewModelAsync();
 
         protected abstract ICrudOperations<T> CrudSubject { get; }
 
@@ -59,7 +59,7 @@ namespace SnelStart.B2B.Client.IntegrationTest
 
         private async Task<Response<T>> SetupCreatedAsync()
         {
-            var dto = CreateNewModel();
+            var dto = await CreateNewModelAsync();
 
             var createResponse = await CrudSubject.CreateAsync(dto);
             if (createResponse.HttpStatusCode != HttpStatusCode.Created)
