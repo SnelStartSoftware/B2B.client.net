@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="AuthenticationOperationsTest.cs" />
     <Compile Include="CrudTest.cs" />
+    <Compile Include="DagboekenOperationsTest.cs" />
     <Compile Include="DependencyRoot.cs" />
     <Compile Include="GrootboekenOperationsTest.cs" />
     <Compile Include="KostenplaatsenOperationsTest.cs" />
