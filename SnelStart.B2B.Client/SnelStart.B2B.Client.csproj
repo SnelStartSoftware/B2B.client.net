@@ -55,8 +55,10 @@
     <Compile Include="Operations\Bijlagen\VerkoopBoekingBijlageReferenceModel.cs" />
     <Compile Include="Operations\Boekingen\BtwSoortModel.cs" />
     <Compile Include="Operations\CrudOperationsBase.cs" />
+    <Compile Include="Operations\Dagboeken\DagboekenOperations.cs" />
     <Compile Include="Operations\Dagboeken\DagboekModel.cs" />
     <Compile Include="Operations\Dagboeken\DagboekSoortModel.cs" />
+    <Compile Include="Operations\Dagboeken\IDagboekenOperations.cs" />
     <Compile Include="Operations\Extensions.cs" />
     <Compile Include="Operations\Authentication\IAuthenticationOperations.cs" />
     <Compile Include="Operations\Grootboeken\DagboekIdentifierModel.cs" />
