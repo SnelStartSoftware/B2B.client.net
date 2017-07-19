@@ -47,6 +47,14 @@ namespace SnelStart.B2B.Client.Operations
                 return await CreateResponse<T[]>(response, HttpStatusCode.OK);
             });
         }
+        protected async Task<Response<T[]>> ExecuteGetAsync(string queryString)
+        {
+            return await Execute(async httpClient =>
+            {
+                var response = await httpClient.GetAsync(_resourceUri+"?"+queryString);
+                return await CreateResponse<T[]>(response, HttpStatusCode.OK);
+            });
+        }
 
         private async Task<Response<TData>> CreateResponse<TData>(HttpResponseMessage response, HttpStatusCode expectedStatusCode)
         {

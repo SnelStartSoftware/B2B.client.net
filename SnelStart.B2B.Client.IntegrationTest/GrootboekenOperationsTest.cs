@@ -22,5 +22,13 @@ namespace SnelStart.B2B.Client.IntegrationTest
 
             Assert.AreEqual(HttpStatusCode.OK, result.HttpStatusCode);
         }
+
+        [Test]
+        public async Task Filter_EmptyOmchrijving()
+        {
+            var result = await _client.Grootboeken.GetAsync("$filter=Omschrijving eq ''");
+
+            Assert.AreEqual(HttpStatusCode.OK, result.HttpStatusCode);
+        }
     }
 }

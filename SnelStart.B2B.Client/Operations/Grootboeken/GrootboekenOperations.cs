@@ -9,5 +9,6 @@ namespace SnelStart.B2B.Client.Operations
         }
 
         public Task<Response<GrootboekModel[]>> GetAllAsync() => base.ExecuteGetAllAsync();
+        public Task<Response<GrootboekModel[]>> GetAsync(string queryString) => base.ExecuteGetAsync(queryString);
     }
 }
