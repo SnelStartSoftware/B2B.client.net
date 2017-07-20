@@ -13,6 +13,7 @@ namespace SnelStart.B2B.Client
         public IGrootboekenOperations Grootboeken { get; }
         public ILandenOperations Landen { get; }
         public IMemoriaalboekingenOperations Memoriaalboekingen { get; }
+        public IDagboekenOperations Dagboeken { get; }
 
         public B2BClient(Config config)
         {
@@ -27,6 +28,7 @@ namespace SnelStart.B2B.Client
             Grootboeken = new GrootboekenOperations(_clientState);
             Landen = new LandenOperations(_clientState);
             Memoriaalboekingen = new MemoriaalboekingenOperations(_clientState);
+            Dagboeken = new DagboekenOperations(_clientState);
         }
 
         internal async Task AuthorizeAsync()
