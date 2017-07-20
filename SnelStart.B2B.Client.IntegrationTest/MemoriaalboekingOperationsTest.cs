@@ -20,11 +20,11 @@ namespace SnelStart.B2B.Client.IntegrationTest
         protected override async Task<MemoriaalboekingModel> CreateNewModelAsync()
         {
             var grootboeken = await _client.Grootboeken.GetAllAsync();
-            var grootboek = grootboeken.Result.FirstOrDefault();
+            var grootboek = grootboeken.Result.FirstOrDefault(x=>x.RekeningCode==RekeningCodeModel.Balans);
 
             if (grootboek == null)
             {
-                Assert.Inconclusive("No grootboek available");
+                Assert.Inconclusive("No grootboek with RekeningCode RekeningCodeModel.Balans available");
             }
 
 
@@ -35,10 +35,21 @@ namespace SnelStart.B2B.Client.IntegrationTest
                 Assert.Inconclusive("No kostenplaats available");
             }
 
+            var dagboeken = await _client.Dagboeken.GetAllAsync();
+            var dagboek = dagboeken.Result.FirstOrDefault(x => x.Soort == DagboekSoortModel.Memoriaal);
+            if (dagboek == null)
+            {
+                Assert.Inconclusive("No dagboek with Soort DagboekSoortModel.Memoriaal available ");
+            }
+
             return new MemoriaalboekingModel
             {
                 Omschrijving = Guid.NewGuid().ToString(),
                 Datum = DateTime.UtcNow,
+                Dagboek = new DagboekIdentifierModel
+                {
+                    Id= dagboek.Id
+                },
                 MemoriaalBoekingsRegels = new[]
                   {
                       new MemoriaalboekingModel.MemoriaalBoekingsRegelModel
