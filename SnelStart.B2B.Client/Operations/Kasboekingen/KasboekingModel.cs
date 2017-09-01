@@ -1,12 +1,8 @@
 using System;
 
-using SnelStart.B2B.Client.Operations;
-using SnelStart.B2B.Client.Operations;
-
-
 namespace SnelStart.B2B.Client.Operations
 {
-    
+
     public class KasboekingModel : IdentifierModel
     {
         /// <summary>

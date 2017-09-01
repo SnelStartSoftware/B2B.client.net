@@ -4,8 +4,8 @@ namespace SnelStart.B2B.Client.Operations
 {
     public class Response
     {
-        internal HttpStatusCode HttpStatusCode { set; get; }
-        internal string ResponseBody { set; get; }
+        public HttpStatusCode HttpStatusCode { set; get; }
+        public string ResponseBody { set; get; }
     }
 
     public class Response<T> : Response
