@@ -122,22 +122,22 @@ namespace SnelStart.B2B.Client.Operations
         /// <summary>
         /// De emailgegevens voor het versturen van offertes.
         /// </summary>
-        public EmailVersturen OfferteEmailVersturen { get; set; }
+        public EmailVersturenModel OfferteEmailVersturen { get; set; }
 
         /// <summary>
         /// De emailgegevens voor het versturen van bevestigingen.
         /// </summary>
-        public EmailVersturen BevestigingsEmailVersturen { get; set; }
+        public EmailVersturenModel BevestigingsEmailVersturen { get; set; }
 
         /// <summary>
         /// De emailgegevens voor het versturen van facturen.
         /// </summary>
-        public EmailVersturen FactuurEmailVersturen { get; set; }
+        public EmailVersturenModel FactuurEmailVersturen { get; set; }
 
         /// <summary>
         /// De emailgegevens voor het versturen van aanmaningen.
         /// </summary>
-        public EmailVersturen AanmaningEmailVersturen { get; set; }
+        public EmailVersturenModel AanmaningEmailVersturen { get; set; }
 
         /// <summary>
         /// Een vlag dat aangeeft of een UBL-bestand als bijlage bij een email moet worden toegevoegd bij het versturen van facturen.
@@ -174,23 +174,5 @@ namespace SnelStart.B2B.Client.Operations
         /// Verwijzing naar de verkoopboekingen voor de relatie
         /// </summary>
         public string VerkoopBoekingUri { get; set; }
-    }
-
-    public class EmailVersturen
-    {
-        /// <summary>
-        /// Geeft aan (lezen/schrijven) of er email moet worden verstuurd.
-        /// </summary>
-        public bool ShouldSend { get; set; }
-
-        /// <summary>
-        /// Het email adres waarnaar email moeten worden verstuurd.
-        /// </summary>
-        public string Email { get; set; }
-
-        /// <summary>
-        /// Het (optionele) email adres waarnaar email moeten worden ge-Cc-eed.
-        /// </summary>
-        public string CcEmail { get; set; }
     }
 }
