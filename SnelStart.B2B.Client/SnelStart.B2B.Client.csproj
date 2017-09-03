@@ -98,15 +98,7 @@
     <Compile Include="Operations\Memoriaalboekingen\MemoriaalboekingenOperations.cs" />
     <Compile Include="Operations\Memoriaalboekingen\MemoriaalboekingModel.cs" />
     <Compile Include="Operations\OperationsBase.cs" />
-    <Compile Include="Operations\Relaties\AanmaningsoortModel.cs" />
-    <Compile Include="Operations\Relaties\AdresModel.cs" />
-    <Compile Include="Operations\Relaties\EmailVersturenModel.cs" />
-    <Compile Include="Operations\Relaties\IncassosoortModel.cs" />
-    <Compile Include="Operations\Relaties\IRelatiesOperations.cs" />
     <Compile Include="Operations\Relaties\RelatieIdentifierModel.cs" />
-    <Compile Include="Operations\Relaties\RelatieModel.cs" />
-    <Compile Include="Operations\Relaties\RelatiesoortModel.cs" />
-    <Compile Include="Operations\Relaties\RelatiesOperations.cs" />
     <Compile Include="Operations\Response.cs" />
     <Compile Include="Operations\VerkoopBoekingen\IncassoMachtigingIdentifierModel.cs" />
     <Compile Include="Operations\VerkoopBoekingen\VerkoopBoekingBtwRegelModel.cs" />

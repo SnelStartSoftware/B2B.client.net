@@ -14,7 +14,6 @@ namespace SnelStart.B2B.Client
         public ILandenOperations Landen { get; }
         public IMemoriaalboekingenOperations Memoriaalboekingen { get; }
         public IDagboekenOperations Dagboeken { get; }
-        public IRelatiesOperations Relaties { get; }
 
         public B2BClient(Config config)
         {
@@ -30,10 +29,9 @@ namespace SnelStart.B2B.Client
             Landen = new LandenOperations(_clientState);
             Memoriaalboekingen = new MemoriaalboekingenOperations(_clientState);
             Dagboeken = new DagboekenOperations(_clientState);
-            Relaties = new RelatiesOperations(_clientState);
         }
 
-        public async Task AuthorizeAsync()
+        internal async Task AuthorizeAsync()
         {
             var pair = _clientState.Config.GetApiUsernamePassword();
 
