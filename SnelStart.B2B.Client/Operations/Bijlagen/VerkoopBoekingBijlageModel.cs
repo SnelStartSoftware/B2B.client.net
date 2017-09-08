@@ -5,7 +5,7 @@ namespace SnelStart.B2B.Client.Operations
     /// <summary>
     /// 
     /// </summary>
-    public class VerkoopBoekingBijlageModel : IdentifierModel
+    public abstract class VerkoopBoekingBijlageModel : IdentifierModel
     {
         /// <summary>
         /// Geeft de naam van deze gegevenscontainer terug.
