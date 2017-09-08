@@ -24,8 +24,8 @@ namespace SnelStart.B2B.Client.Operations
 
             return Execute(async httpClient =>
             {
-                var response = await httpClient.PostAsync(_resourceUri, new StringContent(requestBody, Encoding.UTF8, "application/json"));
-                return await CreateResponse<T>(response, HttpStatusCode.Created);
+                var response = await httpClient.PostAsync(_resourceUri, new StringContent(requestBody, Encoding.UTF8, "application/json")).ConfigureAwait(false);
+                return await CreateResponse<T>(response, HttpStatusCode.Created).ConfigureAwait(false);
             });
         }
         protected Task<Response<T>> ExecutePutAsync(T dto)
@@ -34,8 +34,8 @@ namespace SnelStart.B2B.Client.Operations
             var itemUri = _resourceUri.AddSegment(dto.Id);
             return Execute(async httpClient =>
             {
-                var response = await httpClient.PutAsync(itemUri, new StringContent(requestBody, Encoding.UTF8, "application/json"));
-                return await CreateResponse<T>(response, HttpStatusCode.OK);
+                var response = await httpClient.PutAsync(itemUri, new StringContent(requestBody, Encoding.UTF8, "application/json")).ConfigureAwait(false);
+                return await CreateResponse<T>(response, HttpStatusCode.OK).ConfigureAwait(false);
             });
         }
 
@@ -45,7 +45,7 @@ namespace SnelStart.B2B.Client.Operations
             {
                 var response = await httpClient.GetAsync(_resourceUri);
                 return await CreateResponse<T[]>(response, HttpStatusCode.OK);
-            });
+            }).ConfigureAwait(false);
         }
         protected async Task<Response<T[]>> ExecuteGetAsync(string queryString)
         {
@@ -53,12 +53,12 @@ namespace SnelStart.B2B.Client.Operations
             {
                 var response = await httpClient.GetAsync(_resourceUri+"?"+queryString);
                 return await CreateResponse<T[]>(response, HttpStatusCode.OK);
-            });
+            }).ConfigureAwait(false);
         }
 
         private async Task<Response<TData>> CreateResponse<TData>(HttpResponseMessage response, HttpStatusCode expectedStatusCode)
         {
-            var body = await response.Content.ReadAsStringAsync();
+            var body = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
             if (response.StatusCode == expectedStatusCode)
             {
                 var result = JsonConvert.DeserializeObject<TData>(body);
@@ -83,7 +83,7 @@ namespace SnelStart.B2B.Client.Operations
             {
                 var response = await httpClient.GetAsync(itemUri);
                 return await CreateResponse<T>(response, HttpStatusCode.OK);
-            });
+            }).ConfigureAwait(false);
         }
 
         protected async Task<Response> ExecuteDeleteAsync(Guid id)
@@ -98,12 +98,12 @@ namespace SnelStart.B2B.Client.Operations
                     HttpStatusCode = response.StatusCode,
                     ResponseBody = body
                 };
-            });
+            }).ConfigureAwait(false);
         }
 
         private async Task<TResult> Execute<TResult>(Func<HttpClient, Task<TResult>> action)
         {
-            return await action(_clientState.HttpClient);
+            return await action(_clientState.HttpClient).ConfigureAwait(false);
         }
     }
 }

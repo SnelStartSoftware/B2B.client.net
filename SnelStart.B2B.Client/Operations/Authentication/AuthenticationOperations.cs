@@ -27,8 +27,8 @@ namespace SnelStart.B2B.Client.Operations
                 {"password", password}
             };
 
-            var message = await _httpClient.PostAsync(_config.AuthUri, new FormUrlEncodedContent(requestBody));
-            var json = await message.Content.ReadAsStringAsync();
+            var message = await _httpClient.PostAsync(_config.AuthUri, new FormUrlEncodedContent(requestBody)).ConfigureAwait(false);
+            var json = await message.Content.ReadAsStringAsync().ConfigureAwait(false);
 
             var authResponse = JsonConvert.DeserializeObject<AuthResposne>(json);
 
