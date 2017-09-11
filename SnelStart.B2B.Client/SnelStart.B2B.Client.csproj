@@ -66,6 +66,7 @@
     <Compile Include="Operations\Grootboeken\DagboekIdentifierModel.cs" />
     <Compile Include="Operations\Grootboeken\GrootboekenOperations.cs" />
     <Compile Include="Operations\Grootboeken\GrootboekIdentifierModel.cs" />
+    <Compile Include="Operations\Grootboeken\GrootboekFunctieModel.cs" />
     <Compile Include="Operations\Grootboeken\GrootboekModel.cs" />
     <Compile Include="Operations\Grootboeken\IGrootboekenOperations.cs" />
     <Compile Include="Operations\Grootboeken\RekeningCodeModel.cs" />

@@ -44,5 +44,10 @@ namespace SnelStart.B2B.Client.Operations
         /// Het nummer van het grootboek.
         /// </summary>
         public int Nummer { get; set; }
+
+        /// <summary>
+        /// De grootboekfunctie van het grootboek.
+        /// </summary>
+        public GrootboekFunctieModel GrootboekFunctie { get; set; }
     }
 }
