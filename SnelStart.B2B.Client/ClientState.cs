@@ -3,7 +3,7 @@ using System.Net.Http;
 
 namespace SnelStart.B2B.Client
 {
-    public class ClientState : IDisposable
+    internal class ClientState : IDisposable
     {
         public Config Config { get; }
         public HttpClient HttpClient { get; }
