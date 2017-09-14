@@ -8,6 +8,7 @@ namespace SnelStart.B2B.Client
     {
         private readonly ClientState _clientState;
         public string AccessToken { get { return _clientState.AccessToken; } }
+        public DateTime ExpiresIn;
 
         public IAuthenticationOperations Authentication { get; }
         public IKostenplaatsenOperations Kostenplaatsen { get; }
@@ -17,6 +18,8 @@ namespace SnelStart.B2B.Client
         public IDagboekenOperations Dagboeken { get; }
         public IRelatiesOperations Relaties { get; }
         public IVerkoopboekingenOperations Verkoopboekingen { get; }
+        public IVerkoopboekingBijlagesOperations VerkoopboekingBijlages { get; }
+        public IVerkoopfacturenOperations Verkoopfacturen { get; }
 
         public B2BClient(Config config)
         {
@@ -34,6 +37,8 @@ namespace SnelStart.B2B.Client
             Dagboeken = new DagboekenOperations(_clientState);
             Relaties = new RelatiesOperations(_clientState);
             Verkoopboekingen = new VerkoopboekingenOperations(_clientState);
+            VerkoopboekingBijlages = new VerkoopboekingBijlagesOperations(_clientState);
+            Verkoopfacturen = new VerkoopfacturenOperations(_clientState);
         }
 
         public async Task AuthorizeAsync()
@@ -42,6 +47,7 @@ namespace SnelStart.B2B.Client
 
             var clientStateAccessToken = await Authentication.LoginAsync(pair.Username, pair.Password).ConfigureAwait(false);
             _clientState.AccessToken = clientStateAccessToken.AccessToken;
+            ExpiresIn = DateTime.UtcNow.AddSeconds(clientStateAccessToken.ExpiresIn);
 
             _clientState.HttpClient.DefaultRequestHeaders.Add("Authorization", $"Bearer {_clientState.AccessToken}");
             _clientState.HttpClient.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", _clientState.Config.SubscriptionKey);
