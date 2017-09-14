@@ -19,3 +19,7 @@ await client.AuthorizeAsync();
 
 var kostenplaatsen = await client.Kostenplaatsen.GetAllAsync();
 ````
+
+# NuGet
+This library is now also available at NuGet:
+https://www.nuget.org/packages/SnelStart.B2B.Client/
