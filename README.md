@@ -13,7 +13,7 @@ TLDR: The The source code in this repository is free for use by anyone. If you h
 var koppelSleutel = "";
 var subscriptionKey = "";
 var config = new Config(subscriptionKey, koppelSleutel);
-var client = new B2BClient(Config);
+var client = new B2BClient(config);
 
 await client.AuthorizeAsync();
 
