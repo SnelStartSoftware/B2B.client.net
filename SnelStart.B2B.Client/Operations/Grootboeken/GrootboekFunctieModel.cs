@@ -7,7 +7,7 @@ namespace SnelStart.B2B.Client.Operations
     /// </summary>
     public enum GrootboekFunctieModel
     {
-        Diversen,
+        Diversen = 0,
         DagboekKas,
         DagboekBank,
         DagboekGiro,
