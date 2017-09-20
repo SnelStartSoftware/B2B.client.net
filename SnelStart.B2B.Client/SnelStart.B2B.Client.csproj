@@ -116,6 +116,9 @@
     <Compile Include="Operations\VerkoopBoekingen\VerkoopboekingIdentifierModel.cs" />
     <Compile Include="Operations\VerkoopBoekingen\VerkoopBoekingModel.cs" />
     <Compile Include="Operations\VerkoopBoekingen\VerkoopBoekingRegelModel.cs" />
+    <Compile Include="Operations\Verkoopfacturen\IVerkoopfacturenOperations.cs" />
+    <Compile Include="Operations\Verkoopfacturen\VerkoopfacturenOperations.cs" />
+    <Compile Include="Operations\Verkoopfacturen\VerkoopFactuurModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UsernamePasswordPair.cs" />
   </ItemGroup>
