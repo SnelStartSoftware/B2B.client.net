@@ -4,7 +4,7 @@ namespace SnelStart.B2B.Client.Operations
         IBankboekingenOperations
     {
         public BankboekingenOperations(ClientState clientState) : base(clientState,
-            VerkoopBoekingModel.ResourceName)
+            BankboekingModel.ResourceName)
         {
         }
     }

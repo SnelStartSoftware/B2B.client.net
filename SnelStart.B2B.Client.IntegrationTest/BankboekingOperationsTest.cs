@@ -20,11 +20,11 @@ namespace SnelStart.B2B.Client.IntegrationTest
         protected override async Task<BankboekingModel> CreateNewModelAsync()
         {
             var grootboeken = await _client.Grootboeken.GetAllAsync();
-            var grootboek = grootboeken.Result.FirstOrDefault(x => x.RekeningCode == RekeningCodeModel.Balans);
+            var grootboek = grootboeken.Result.FirstOrDefault(x => x.GrootboekFunctie == GrootboekFunctieModel.Diversen);
 
             if (grootboek == null)
             {
-                Assert.Inconclusive("No grootboek with RekeningCode RekeningCodeModel.Balans available");
+                Assert.Inconclusive("No grootboek with Functie GrootboekFunctieModel.Diversen available");
             }
 
             var dagboeken = await _client.Dagboeken.GetAllAsync();
