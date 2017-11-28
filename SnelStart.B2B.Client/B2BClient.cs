@@ -19,6 +19,7 @@ namespace SnelStart.B2B.Client
         public IVerkoopboekingenOperations Verkoopboekingen { get; }
         public IVerkoopboekingBijlagesOperations VerkoopboekingBijlages { get; }
         public IVerkoopfacturenOperations Verkoopfacturen { get; }
+        public IBankboekingenOperations Bankboekingen { get; }
 
         public B2BClient(Config config)
         {
@@ -38,6 +39,7 @@ namespace SnelStart.B2B.Client
             Verkoopboekingen = new VerkoopboekingenOperations(_clientState);
             VerkoopboekingBijlages = new VerkoopboekingBijlagesOperations(_clientState);
             Verkoopfacturen = new VerkoopfacturenOperations(_clientState);
+            Bankboekingen = new BankboekingenOperations(_clientState);
         }
 
         public void Dispose()

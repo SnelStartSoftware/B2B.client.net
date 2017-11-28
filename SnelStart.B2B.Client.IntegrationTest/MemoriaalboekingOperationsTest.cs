@@ -20,7 +20,7 @@ namespace SnelStart.B2B.Client.IntegrationTest
         protected override async Task<MemoriaalboekingModel> CreateNewModelAsync()
         {
             var grootboeken = await _client.Grootboeken.GetAllAsync();
-            var grootboek = grootboeken.Result.FirstOrDefault(x=>x.RekeningCode==RekeningCodeModel.Balans);
+            var grootboek = grootboeken.Result.FirstOrDefault(x => x.RekeningCode == RekeningCodeModel.Balans);
 
             if (grootboek == null)
             {
@@ -48,25 +48,25 @@ namespace SnelStart.B2B.Client.IntegrationTest
                 Datum = DateTime.UtcNow,
                 Dagboek = new DagboekIdentifierModel
                 {
-                    Id= dagboek.Id
+                    Id = dagboek.Id
                 },
                 MemoriaalBoekingsRegels = new[]
-                  {
-                      new MemoriaalboekingModel.MemoriaalBoekingsRegelModel
-                      {
-                          Grootboek = grootboek,
-                          Omschrijving = Guid.NewGuid().ToString(),
-                          Credit = 1,
-                          Kostenplaats = kostenplaats
-                      },
+                {
                     new MemoriaalboekingModel.MemoriaalBoekingsRegelModel
-                      {
-                          Grootboek = grootboek,
-                          Omschrijving = Guid.NewGuid().ToString(),
-                          Credit = -1,
-                          Kostenplaats = kostenplaats
-                      }
-                  }
+                    {
+                        Grootboek = grootboek,
+                        Omschrijving = Guid.NewGuid().ToString(),
+                        Credit = 1,
+                        Kostenplaats = kostenplaats
+                    },
+                    new MemoriaalboekingModel.MemoriaalBoekingsRegelModel
+                    {
+                        Grootboek = grootboek,
+                        Omschrijving = Guid.NewGuid().ToString(),
+                        Credit = -1,
+                        Kostenplaats = kostenplaats
+                    }
+                }
             };
         }
     }

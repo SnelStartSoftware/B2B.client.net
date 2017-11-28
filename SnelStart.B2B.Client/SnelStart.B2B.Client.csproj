@@ -44,7 +44,9 @@
     <Compile Include="ClientState.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="IB2BClient.cs" />
+    <Compile Include="Operations\Bankboekingen\BankboekingenOperations.cs" />
     <Compile Include="Operations\Bankboekingen\BankboekingModel.cs" />
+    <Compile Include="Operations\Bankboekingen\IBankboekingenOperations.cs" />
     <Compile Include="Operations\Bijlagen\InkoopBoekingBijlageContentModel.cs" />
     <Compile Include="Operations\Bijlagen\InkoopBoekingBijlageModel.cs" />
     <Compile Include="Operations\Bijlagen\InkoopBoekingBijlageReferenceModel.cs" />
