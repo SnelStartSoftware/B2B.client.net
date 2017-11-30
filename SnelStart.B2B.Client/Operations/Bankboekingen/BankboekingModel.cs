@@ -10,7 +10,7 @@ namespace SnelStart.B2B.Client.Operations
         /// 
         /// </summary>
         public const string ResourceName = "bankboekingen";
-        internal BankboekingModel() : base(ResourceName)
+        public BankboekingModel() : base(ResourceName)
         {
         }
 
