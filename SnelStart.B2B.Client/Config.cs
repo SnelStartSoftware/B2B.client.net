@@ -5,12 +5,23 @@ namespace SnelStart.B2B.Client
 {
     public class Config
     {
-        public Uri AuthUri => new Uri("https://auth.snelstart.nl/b2b/token");
-        public Uri ApiBaseUriVersioned => new Uri("https://b2bapi.snelstart.nl/v1");
+        public Uri AuthUri { get; }
+        public Uri ApiBaseUriVersioned { get; }
         public string SubscriptionKey { get; }
         public string KoppelSleutel { get; }
 
         public Config(string subscriptionKey, string koppelSleutel)
+            : this(
+                  subscriptionKey, 
+                  koppelSleutel, 
+                  new Uri("https://auth.snelstart.nl"), 
+                  new Uri("https://b2bapi.snelstart.nl")
+            )
+        {
+           
+        }
+
+        public Config(string subscriptionKey, string koppelSleutel, Uri authUri, Uri apiUri)
         {
             if (string.IsNullOrWhiteSpace(subscriptionKey))
             {
@@ -21,9 +32,20 @@ namespace SnelStart.B2B.Client
             {
                 throw new ArgumentException("Parameter cannot be null or whitespace", nameof(koppelSleutel));
             }
+            if (authUri == null)
+            {
+                throw new ArgumentException("Parameter cannot be null", nameof(authUri));
+            }
+
+            if (apiUri == null)
+            {
+                throw new ArgumentException("Parameter cannot be null", nameof(apiUri));
+            }
 
             SubscriptionKey = subscriptionKey;
             KoppelSleutel = koppelSleutel;
+            AuthUri = new Uri(authUri, "b2b/token");
+            ApiBaseUriVersioned = new Uri(apiUri, "v1");
         }
 
         internal UsernamePasswordPair GetApiUsernamePassword()

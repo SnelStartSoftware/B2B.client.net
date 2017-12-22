@@ -45,19 +45,24 @@ namespace SnelStart.B2B.Client
             _httpClient.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", Config.SubscriptionKey);
         }
 
-        public async Task<Response<T>> ExecutePostAsync<T>(string resourceName, T dto) where T : IIdentifierModel
+        public Task<Response<T>> ExecutePostAsync<T>(string resourceName, T dto) => ExecutePostAsync<T, T>(resourceName, dto);
+
+
+        public async Task<Response<TResponse>> ExecutePostAsync<TDto, TResponse>(string relativeUri, TDto dto)
         {
             await EnsureAuthorizedAsync().ConfigureAwait(false);
 
-            var resourceUri = Config.ApiBaseUriVersioned.AddSegment(resourceName);
+            var resourceUri = Config.ApiBaseUriVersioned.AddSegment(relativeUri);
             var requestBody = JsonConvert.SerializeObject(dto);
 
             return await Execute(async httpClient =>
             {
                 var response = await httpClient.PostAsync(resourceUri, new StringContent(requestBody, Encoding.UTF8, "application/json")).ConfigureAwait(false);
-                return await CreateResponse<T>(response, HttpStatusCode.Created).ConfigureAwait(false);
+                return await CreateResponse<TResponse>(response, HttpStatusCode.Created).ConfigureAwait(false);
             }).ConfigureAwait(false);
         }
+
+
 
         public async Task<Response<T>> ExecutePutAsync<T>(string resourceName, T dto) where T : IIdentifierModel
         {
