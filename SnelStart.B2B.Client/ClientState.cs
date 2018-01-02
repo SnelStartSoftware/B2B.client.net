@@ -9,9 +9,10 @@ using SnelStart.B2B.Client.Operations;
 
 namespace SnelStart.B2B.Client
 {
+
     internal class ClientState : IDisposable
     {
-        private readonly HttpClient _httpClient = new HttpClient();
+        private static readonly HttpClient HttpClient = new HttpClient();
 
         public Config Config { get; }
         public string AccessToken { get; internal set; }
@@ -33,7 +34,7 @@ namespace SnelStart.B2B.Client
                 {"password", pair.Password}
             };
 
-            var message = await _httpClient.PostAsync(Config.AuthUri, new FormUrlEncodedContent(requestBody)).ConfigureAwait(false);
+            var message = await HttpClient.PostAsync(Config.AuthUri, new FormUrlEncodedContent(requestBody)).ConfigureAwait(false);
             var json = await message.Content.ReadAsStringAsync().ConfigureAwait(false);
 
             var authResponse = JsonConvert.DeserializeObject<AuthResposne>(json);
@@ -41,8 +42,8 @@ namespace SnelStart.B2B.Client
             AccessToken = authResponse.Access_Token;
             RenewTokenBefore = DateTime.UtcNow.AddSeconds(authResponse.Expires_In);
 
-            _httpClient.DefaultRequestHeaders.Add("Authorization", $"Bearer {AccessToken}");
-            _httpClient.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", Config.SubscriptionKey);
+            HttpClient.DefaultRequestHeaders.Add("Authorization", $"Bearer {AccessToken}");
+            HttpClient.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", Config.SubscriptionKey);
         }
 
         public Task<Response<T>> ExecutePostAsync<T>(string resourceName, T dto) => ExecutePostAsync<T, T>(resourceName, dto);
@@ -168,12 +169,12 @@ namespace SnelStart.B2B.Client
 
         private async Task<TResult> Execute<TResult>(Func<HttpClient, Task<TResult>> action)
         {
-            return await action(_httpClient).ConfigureAwait(false);
+            return await action(HttpClient).ConfigureAwait(false);
         }
 
         public void Dispose()
         {
-            _httpClient.Dispose();
+            HttpClient.Dispose();
         }
 
         private class AuthResposne
