@@ -32,6 +32,8 @@ namespace SnelStart.B2B.Client
 
             _clientState = new ClientState(config);
 
+            ConfigureServicePointManager(config);
+
             Kostenplaatsen = new KostenplaatsenOperations(_clientState);
             Grootboeken = new GrootboekenOperations(_clientState);
             Landen = new LandenOperations(_clientState);
@@ -43,6 +45,17 @@ namespace SnelStart.B2B.Client
             Verkoopfacturen = new VerkoopfacturenOperations(_clientState);
             Bankboekingen = new BankboekingenOperations(_clientState);
             BankafschriftBestanden = new BankafschriftBestandenOperations(_clientState);
+        }
+
+        private static void ConfigureServicePointManager(Config config)
+        {
+            ServicePointManager.FindServicePoint(config.AuthUri).ConnectionLeaseTimeout = config.ConnectionLeaseTimeoutInMilliseconds;
+            ServicePointManager.FindServicePoint(config.ApiBaseUriVersioned).ConnectionLeaseTimeout = config.ConnectionLeaseTimeoutInMilliseconds;
+
+            if (config.DnsRefreshTimeoutInMilliseconds.HasValue)
+            {
+                ServicePointManager.DnsRefreshTimeout = config.DnsRefreshTimeoutInMilliseconds.Value;
+            }
         }
 
         public void Dispose()
