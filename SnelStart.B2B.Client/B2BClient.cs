@@ -52,9 +52,9 @@ namespace SnelStart.B2B.Client
             ServicePointManager.FindServicePoint(config.AuthUri).ConnectionLeaseTimeout = config.ConnectionLeaseTimeoutInMilliseconds;
             ServicePointManager.FindServicePoint(config.ApiBaseUriVersioned).ConnectionLeaseTimeout = config.ConnectionLeaseTimeoutInMilliseconds;
 
-            if (config.DnsRefreshTimeoutInMilliseconds.HasValue)
+            if (config.ConfigureDnsRefreshTimeoutEnabled)
             {
-                ServicePointManager.DnsRefreshTimeout = config.DnsRefreshTimeoutInMilliseconds.Value;
+                ServicePointManager.DnsRefreshTimeout = config.DnsRefreshTimeoutInMilliseconds;
             }
         }
 

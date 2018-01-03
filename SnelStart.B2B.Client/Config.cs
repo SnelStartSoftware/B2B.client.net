@@ -10,7 +10,8 @@ namespace SnelStart.B2B.Client
         public string SubscriptionKey { get; }
         public string KoppelSleutel { get; }
         public int ConnectionLeaseTimeoutInMilliseconds { get; set; } = (int) TimeSpan.FromMinutes(1).TotalMilliseconds;
-        public int? DnsRefreshTimeoutInMilliseconds { get; set; } = (int)TimeSpan.FromMinutes(1).TotalMilliseconds;
+        public int DnsRefreshTimeoutInMilliseconds { get; set; } = (int)TimeSpan.FromMinutes(1).TotalMilliseconds;
+        public bool ConfigureDnsRefreshTimeoutEnabled { get; set; } = true;
 
         public Config(string subscriptionKey, string koppelSleutel)
             : this(
