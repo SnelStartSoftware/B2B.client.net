@@ -10,7 +10,7 @@ using SnelStart.B2B.Client.Operations;
 namespace SnelStart.B2B.Client
 {
 
-    internal class ClientState : IDisposable
+    internal class ClientState
     {
         private static readonly HttpClient HttpClient = new HttpClient();
 
@@ -170,11 +170,6 @@ namespace SnelStart.B2B.Client
         private async Task<TResult> Execute<TResult>(Func<HttpClient, Task<TResult>> action)
         {
             return await action(HttpClient).ConfigureAwait(false);
-        }
-
-        public void Dispose()
-        {
-            HttpClient.Dispose();
         }
 
         private class AuthResposne

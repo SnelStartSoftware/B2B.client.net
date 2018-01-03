@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 using System.Threading.Tasks;
 using SnelStart.B2B.Client.Operations;
 
@@ -46,7 +47,7 @@ namespace SnelStart.B2B.Client
 
         public void Dispose()
         {
-            _clientState.Dispose();
+            
         }
 
         public async Task AuthorizeAsync()
