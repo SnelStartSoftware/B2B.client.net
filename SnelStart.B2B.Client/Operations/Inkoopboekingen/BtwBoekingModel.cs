@@ -8,7 +8,7 @@
         /// <summary>
         /// De btw-soort waarop het btw-bedrag wordt geboekt.
         /// </summary>
-        public BtwBoekingSoortModel BtwSoort { get; set; }
+        public BtwBoekingSoortModel? BtwSoort { get; set; }
 
         /// <summary>
         /// Het btw-bedrag dat voor de gegeven btwsoort wordt geboekt.
