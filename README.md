@@ -5,9 +5,9 @@
 # B2B.client.net
 SnelStart B2B API .NET client
 
-The SnelStart B2B API .NET client is an open source client library for the SnelStart B2B API.
+The SnelStart B2B API .NET client is an open source client library for v1 of the SnelStart B2B API. See [here](https://github.com/SnelStartSoftware/B2B.client.v2.net) for v2.
 
-**IMPORTANT**: This version of the B2B Api and therefore this client are deprecated in favor of V2.0. Click [here](https://github.com/SnelStartSoftware/B2B.client.v2.net) for a NuGet package compatible with version 2.
+**IMPORTANT**: v1 of the B2B API is deprecated and therefore this client is deprecated as well in favor of v2.
 
 # License
 See the [LICENSE](./LICENSE.md) file for license rights and limitations (MIT).
