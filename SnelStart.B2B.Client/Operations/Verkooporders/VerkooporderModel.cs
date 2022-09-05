@@ -1,5 +1,4 @@
-﻿using SnelStart.B2B.Client.Operations.Verkoopordersjablonen;
-using System;
+﻿using System;
 
 namespace SnelStart.B2B.Client.Operations
 {

@@ -1,4 +1,4 @@
-﻿namespace SnelStart.B2B.Client.Operations.Verkoopordersjablonen
+﻿namespace SnelStart.B2B.Client.Operations
 {
     /// <summary>
     /// De gegevenscontainer voor een verkooporder.
