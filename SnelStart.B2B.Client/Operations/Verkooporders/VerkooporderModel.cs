@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SnelStart.B2B.Client.Operations.Verkoopordersjablonen;
+using System;
 
 namespace SnelStart.B2B.Client.Operations
 {
@@ -103,6 +104,11 @@ namespace SnelStart.B2B.Client.Operations
         /// De verkoopfactuur die bij deze order hoort
         /// </summary>
         public VerkoopFactuurModel Verkoopfactuur { get; set; }
+
+        /// <summary>
+        /// Het <see cref="VerkoopordersjabloonModel"/> dat bij deze order hoort
+        /// </summary>
+        public VerkoopordersjabloonModel Verkoopordersjabloon { get; set; }
 
     }
 }
